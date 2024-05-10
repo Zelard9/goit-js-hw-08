@@ -1,0 +1,28 @@
+.gallery {
+  padding: 0;
+  width: 1128px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 16px;
+  margin: auto;
+}
+
+img {
+  width: 360px;
+  height: 200px;
+}
+
+img:hover {
+  width: 376px;
+  height: 208px;
+}
+
+li {
+  list-style: none;
+}
+
+.modal img {
+  width: 1112px;
+  height: 640px;
+}
