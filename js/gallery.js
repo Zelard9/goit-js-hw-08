@@ -66,17 +66,17 @@ const images = [
 
 function galleryItems(image) {
   return `
-        <li class="gallery-item">
-          <a class="gallery-link" href="${image.original}">
-            <img
-              class="gallery-image"
-              src="${image.preview}"
-              data-source="${image.original}"
-              alt="${image.description}"
-            />
-          </a>
-        </li>
-        `;
+    <li class="gallery-item">
+      <a class="gallery-link" href="${image.original}">
+        <img
+          class="gallery-image"
+          src="${image.preview}"
+          data-source="${image.original}"
+          alt="${image.description}"
+        />
+      </a>
+    </li>
+  `;
 }
 
 const gallery = document.querySelector("ul.gallery");
@@ -86,13 +86,7 @@ images.forEach((image) => {
   gallery.innerHTML += galleryHTML;
 });
 
-const galleryLinks = document.querySelectorAll(".gallery-link");
-galleryLinks.forEach((link) => {
-  link.addEventListener("click", function (event) {
-    event.preventDefault();
-    selectImage(event);
-  });
-});
+gallery.addEventListener("click", selectImage);
 
 function selectImage(event) {
   event.preventDefault();
@@ -105,10 +99,10 @@ function selectImage(event) {
   const imageAlt = target.alt;
 
   const instance = basicLightbox.create(`
-          <div class="modal">
-            <img src="${imageSrc}" alt="${imageAlt}">
-          </div>
-        `);
+    <div class="modal">
+      <img src="${imageSrc}" alt="${imageAlt}">
+    </div>
+  `);
 
   instance.show();
 }
